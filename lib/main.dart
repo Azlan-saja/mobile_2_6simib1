@@ -20,7 +20,11 @@ class MyApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.purpleAccent,
           foregroundColor: Colors.white,
-          elevation: 0,
+          elevation: 10,
+          titleTextStyle: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 22,
+          ),
         ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: Colors.purpleAccent,
@@ -29,6 +33,7 @@ class MyApp extends StatelessWidget {
           selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
           elevation: 0,
         ),
+        scaffoldBackgroundColor: Colors.grey.shade200,
       ),
       home: const Dashboard(),
     );
