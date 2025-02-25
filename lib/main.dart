@@ -17,6 +17,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
         fontFamily: 'Quicksand',
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.purpleAccent.shade700,
+              foregroundColor: Colors.white),
+        ),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.purpleAccent,
           foregroundColor: Colors.white,
