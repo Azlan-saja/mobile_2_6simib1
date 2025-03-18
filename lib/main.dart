@@ -23,6 +23,8 @@ class MyApp extends StatelessWidget {
               foregroundColor: Colors.white),
         ),
         appBarTheme: const AppBarTheme(
+          
+          centerTitle: true,
           backgroundColor: Colors.purpleAccent,
           foregroundColor: Colors.white,
           elevation: 10,

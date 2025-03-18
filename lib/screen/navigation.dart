@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:master/screen/navigation/navigation_dua.dart';
+import 'package:master/screen/navigation/navigation_satu.dart';
+import 'package:master/screen/navigation/navigation_tiga.dart';
 
 class Navigation extends StatelessWidget {
   const Navigation({super.key});
@@ -14,15 +17,38 @@ class Navigation extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const NavigationSatu(
+                      nama: 'Azlansaja',
+                    ),
+                  ),
+                );
+              },
               child: const Text('1. Kirim Data'),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const NavigationDua(),
+                  ),
+                );
+              },
               child: const Text('2. Terima Data Saja'),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const NavigationTiga(),
+                  ),
+                );
+              },
               child: const Text('3. Kirim Data dan Terima Balasan'),
             ),
           ],
