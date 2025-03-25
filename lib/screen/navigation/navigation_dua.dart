@@ -9,8 +9,13 @@ class NavigationDua extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Layar Terima Data'),
       ),
-      body: const Center(
-        child: Text('Hello Word'),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context, 'Hello AzlansajaTV');
+          },
+          child: const Text('Selesai'),
+        ),
       ),
     );
   }
