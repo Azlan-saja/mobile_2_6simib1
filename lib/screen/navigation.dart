@@ -7,6 +7,7 @@ class Navigation extends StatelessWidget {
   Navigation({super.key});
 
   final terimaData = TextEditingController();
+  final kirimData = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -65,14 +66,40 @@ class Navigation extends StatelessWidget {
                 },
                 child: const Text('2. Terima Data Saja'),
               ),
+              const Divider(),
+              const SizedBox(height: 30),
+              TextFormField(
+                controller: kirimData,
+                decoration: const InputDecoration(
+                  labelText: 'Input Nilai 1',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(50),
+                    ),
+                  ),
+                ),
+              ),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
+                onPressed: () async {
+                  final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const NavigationTiga(),
+                      builder: (context) =>
+                          NavigationTiga(terimaData: int.parse(kirimData.text)),
                     ),
                   );
+
+                  if (result != null) {
+                    if (!context.mounted) return;
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Text(result),
+                        );
+                      },
+                    );
+                  }
                 },
                 child: const Text('3. Kirim Data dan Terima Balasan'),
               ),
