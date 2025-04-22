@@ -84,7 +84,7 @@ class _DashboardState extends State<Dashboard> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const StateManajemen(),
+                    builder: (context) => StateManajemen(),
                   ),
                 );
               },
