@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:master/providers/counter_provider.dart';
+import 'package:provider/provider.dart';
 
 class StateManajemen extends StatefulWidget {
   const StateManajemen({super.key});
@@ -12,6 +14,8 @@ class _StateManajemenState extends State<StateManajemen> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<CounterProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Layar State Manajemen"),
@@ -39,7 +43,23 @@ class _StateManajemenState extends State<StateManajemen> {
                       },
                       icon: const Icon(Icons.plus_one))
                 ],
-              )
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                      onPressed: () {
+                        provider.kurangCounter();
+                      },
+                      icon: const Icon(Icons.exposure_minus_1)),
+                  Text('Hasil ${provider.hasilCounterProvider}'),
+                  IconButton(
+                      onPressed: () {
+                        provider.tambahCounter();
+                      },
+                      icon: const Icon(Icons.plus_one))
+                ],
+              ),
             ],
           ),
         ),
