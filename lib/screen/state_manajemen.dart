@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:master/providers/counter_provider.dart';
+import 'package:master/screen/state/state_provider.dart';
 import 'package:provider/provider.dart';
 
 class StateManajemen extends StatefulWidget {
@@ -59,6 +60,14 @@ class _StateManajemenState extends State<StateManajemen> {
                       },
                       icon: const Icon(Icons.plus_one))
                 ],
+              ),
+              const SizedBox(height: 50),
+              ElevatedButton(
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const StateProvider())),
+                child: const Text('State Provider'),
               ),
             ],
           ),
