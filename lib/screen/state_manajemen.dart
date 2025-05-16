@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:master/providers/counter_provider.dart';
-import 'package:master/screen/state/state_provider.dart';
+import 'package:master/screen/json/file_json_screen.dart';
 import 'package:provider/provider.dart';
 
 class StateManajemen extends StatefulWidget {
@@ -27,48 +27,56 @@ class _StateManajemenState extends State<StateManajemen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const Text(
+                'Local State: SetState()',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  IconButton(
+                  ElevatedButton(
                       onPressed: () {
                         hasilCounter = hasilCounter - 1;
                         setState(() {});
                       },
-                      icon: const Icon(Icons.exposure_minus_1)),
+                      child: const Icon(Icons.exposure_minus_1)),
                   Text('Hasil $hasilCounter'),
-                  IconButton(
+                  ElevatedButton(
                       onPressed: () {
                         hasilCounter = hasilCounter + 1;
                         setState(() {});
                       },
-                      icon: const Icon(Icons.plus_one))
+                      child: const Icon(Icons.plus_one))
                 ],
+              ),
+              const SizedBox(height: 30),
+              const Divider(),
+              const SizedBox(height: 30),
+              const Text(
+                'Global State: Package Provider',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  IconButton(
+                  ElevatedButton(
                       onPressed: () {
                         provider.kurangCounter();
                       },
-                      icon: const Icon(Icons.exposure_minus_1)),
+                      child: const Icon(Icons.exposure_minus_1)),
                   Text('Hasil ${provider.hasilCounterProvider}'),
-                  IconButton(
+                  ElevatedButton(
                       onPressed: () {
                         provider.tambahCounter();
                       },
-                      icon: const Icon(Icons.plus_one))
+                      child: const Icon(Icons.plus_one))
                 ],
               ),
               const SizedBox(height: 50),
-              ElevatedButton(
-                onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const StateProvider())),
-                child: const Text('State Provider'),
-              ),
             ],
           ),
         ),

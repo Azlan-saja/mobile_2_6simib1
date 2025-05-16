@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:master/providers/counter_provider.dart';
 import 'package:master/screen/account.dart';
 import 'package:master/screen/home.dart';
+import 'package:master/screen/json/file_json_screen.dart';
 import 'package:master/screen/message.dart';
 import 'package:master/screen/navigation.dart';
 import 'package:master/screen/state_manajemen.dart';
+import 'package:provider/provider.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -29,6 +32,8 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<CounterProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('APP 6SIMIB1 $_indexLayar'),
@@ -89,6 +94,18 @@ class _DashboardState extends State<Dashboard> {
                 );
               },
             ),
+            ListTile(
+              leading: const Icon(Icons.data_array),
+              title: const Text('File JSON'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FileJsonScreen(),
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
@@ -96,16 +113,18 @@ class _DashboardState extends State<Dashboard> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _indexLayar,
         onTap: _ganti,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.message),
+            icon: Badge.count(
+                count: provider.hasilCounterProvider,
+                child: Icon(Icons.message)),
             label: 'Message',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Account',
           ),
