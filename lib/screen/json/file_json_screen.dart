@@ -37,7 +37,6 @@ class _FileJsonScreenState extends State<FileJsonScreen> {
           "jam": jamController.text,
           "pelajaran": pelajaranController.text
         });
-        // PERINTAH TULIS DATA KE FILE JSON
       });
     }
   }
